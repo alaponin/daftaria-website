@@ -1,0 +1,51 @@
+.problem {
+  background: var(--blue-md);
+  padding: 72px 48px;
+}
+
+.problem__h2 {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: white;
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+.problem__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.problem__card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 3px;
+  padding: 22px 20px;
+}
+
+.problem__icon { font-size: 1.5rem; margin-bottom: 12px; }
+
+.problem__card-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 8px;
+}
+
+.problem__card-body {
+  font-size: 0.74rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.65;
+}
+
+.problem__accent {
+  color: var(--orange);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .problem { padding: 52px 20px; }
+  .problem__grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+}
