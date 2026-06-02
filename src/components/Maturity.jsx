@@ -41,7 +41,7 @@ export default function Maturity() {
         {ARCHETYPES.map(({ step, title, body, barWidth, highlight }, i) => (
           <React.Fragment key={i}>
             <div className={`maturity__card${highlight ? ' maturity__card--highlight' : ''}`}>
-              <p className="maturity__step">{step}</p>
+              <p className="maturity__card-step">{step}</p>
               <h3 className="maturity__card-title">{title}</h3>
               <p className="maturity__card-body">{body}</p>
               <div className="maturity__bar-track">
