@@ -31,7 +31,7 @@ export default function Approach() {
   return (
     <section className="approach" id="solution">
       <p className="eyebrow eyebrow--muted">A different approach</p>
-      <h2 className="approach__h2">Configure, don't build.</h2>
+      <h2 className="approach__h2">Configure, don&apos;t build.</h2>
       <p className="s-sub">
         For the well-understood functions of a tax administration, the right strategy is to configure
         a mature platform — not build bespoke software. Tax administration is, capability by
@@ -52,7 +52,7 @@ export default function Approach() {
       </div>
       <div className="approach__joget">
         <strong>Built on Joget DX9.</strong> A mature, commercially supported low-code platform
-        with a substantial global customer base and an active product roadmap. The vendor's continued
+        with a substantial global customer base and an active product roadmap. The vendor&apos;s continued
         investment underwrites long-term viability — security patches, supported releases, and no
         orphaned bespoke code for the administration to maintain alone.
       </div>
