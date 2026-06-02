@@ -1,0 +1,68 @@
+.why {
+  background: var(--off);
+  padding: 72px 48px;
+}
+
+.why__h2 {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--blue);
+  line-height: 1.2;
+  margin-bottom: 0.875rem;
+}
+
+.why__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.why__card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 26px;
+}
+
+.why__role {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.why__card-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--blue);
+  line-height: 1.35;
+  margin-bottom: 14px;
+}
+
+.why__list { list-style: none; }
+
+.why__list li {
+  font-size: 0.74rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  padding: 6px 0;
+  border-bottom: 1px solid #f0f0ec;
+  display: flex;
+  gap: 8px;
+}
+
+.why__list li:last-child { border-bottom: none; }
+
+.why__list li::before {
+  content: '—';
+  color: var(--green);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .why { padding: 52px 20px; }
+  .why__grid { grid-template-columns: 1fr; }
+}
