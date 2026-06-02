@@ -11,6 +11,10 @@
   --muted:   #5a6240;
   --text:    #1c2010;
   --text-secondary: #4a5568;
+  --red-muted:      #9a3030;
+  --amber-muted:    #7a6020;
+  --surface:        #ffffff;
+  --on-dark-secondary: rgba(255, 255, 255, 0.6);
 }
 
 /* ── Reset ───────────────────────────────────────────── */
@@ -52,7 +56,7 @@ body {
   max-width: 560px;
   margin-bottom: 2.5rem;
 }
-.s-sub--light { color: rgba(255, 255, 255, 0.6); }
+.s-sub--light { color: var(--on-dark-secondary); }
 
 /* ── Shared button styles ────────────────────────────── */
 .btn-primary {
