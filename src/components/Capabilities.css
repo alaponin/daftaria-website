@@ -1,5 +1,5 @@
 .capabilities {
-  background: white;
+  background: var(--surface);
   padding: 72px 48px;
 }
 
