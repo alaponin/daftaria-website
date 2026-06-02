@@ -17,10 +17,7 @@
   color: var(--green);
 }
 
-.cta-section__sub {
-  font-size: 0.88rem;
-  color: var(--on-dark-secondary);
-  line-height: 1.7;
+.cta-section .s-sub {
   max-width: 460px;
   margin: 0 auto 2rem;
 }

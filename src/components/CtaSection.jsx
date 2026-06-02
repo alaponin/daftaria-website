@@ -7,7 +7,7 @@ export default function CtaSection() {
         Ready to make tax administration<br />
         <em>work for every administration?</em>
       </h2>
-      <p className="cta-section__sub">
+      <p className="s-sub s-sub--light">
         Request a briefing with the FiscalAdmin team — or download the full whitepaper
         to share with your colleagues and technical advisers.
       </p>
