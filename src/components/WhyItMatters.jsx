@@ -46,13 +46,13 @@ export default function WhyItMatters() {
         Daftaria is built to answer the concerns of every decision-maker in the room — not just one.
       </p>
       <div className="why__grid">
-        {AUDIENCES.map(({ role, title, points }, i) => (
-          <div key={i} className="why__card">
-            <p className="why__role">{role}</p>
+        {AUDIENCES.map(({ role, title, points }) => (
+          <div key={role} className="why__card">
+            <p className="eyebrow eyebrow--muted">{role}</p>
             <h3 className="why__card-title">{title}</h3>
             <ul className="why__list">
-              {points.map((point, j) => (
-                <li key={j}>{point}</li>
+              {points.map((point) => (
+                <li key={point}>{point}</li>
               ))}
             </ul>
           </div>
