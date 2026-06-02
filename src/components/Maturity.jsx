@@ -1,4 +1,4 @@
-import React from 'react'
+import { Fragment } from 'react'
 import './Maturity.css'
 
 const ARCHETYPES = [
@@ -39,7 +39,7 @@ export default function Maturity() {
       </p>
       <div className="maturity__track">
         {ARCHETYPES.map(({ step, title, body, barWidth, highlight }, i) => (
-          <React.Fragment key={i}>
+          <Fragment key={step}>
             <div className={`maturity__card${highlight ? ' maturity__card--highlight' : ''}`}>
               <p className="maturity__card-step">{step}</p>
               <h3 className="maturity__card-title">{title}</h3>
@@ -51,7 +51,7 @@ export default function Maturity() {
             {i < ARCHETYPES.length - 1 && (
               <div className="maturity__arrow" aria-hidden="true">→</div>
             )}
-          </React.Fragment>
+          </Fragment>
         ))}
       </div>
       <p className="maturity__footnote">

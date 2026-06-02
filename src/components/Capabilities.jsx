@@ -26,8 +26,8 @@ export default function Capabilities() {
         excise, property — configured on the same engine. Tax-type-neutral by design.
       </p>
       <div className="capabilities__grid">
-        {CAPS.map(({ icon, title, desc, variant }, i) => (
-          <div key={i} className={`cap-card cap-card--${variant}`}>
+        {CAPS.map(({ icon, title, desc, variant }) => (
+          <div key={title} className={`cap-card cap-card--${variant}`}>
             <div className="cap-card__icon">{icon}</div>
             <h3 className="cap-card__title">{title}</h3>
             <p className="cap-card__desc">{desc}</p>
