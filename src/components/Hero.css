@@ -2,8 +2,8 @@
   background: var(--blue);
   padding: 80px 48px 72px;
   display: grid;
-  grid-template-columns: 1fr 280px;
-  gap: 48px;
+  grid-template-columns: 1fr 300px;
+  gap: 32px;
   align-items: center;
   position: relative;
   overflow: hidden;
@@ -60,25 +60,27 @@
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(189, 202, 66, 0.22);
   border-radius: 3px;
-  padding: 16px 20px;
+  padding: 20px 24px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .hero__stat-n {
-  font-size: 2.2rem;
+  font-size: 4.5rem;
   font-weight: 800;
   color: var(--green);
   line-height: 1;
 }
 
 .hero__stat-l {
-  font-size: 0.6rem;
+  font-size: 0.68rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.45);
-  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.09em;
   text-transform: uppercase;
-  margin-top: 5px;
+  margin-top: 8px;
 }
 
 @media (max-width: 768px) {
