@@ -27,7 +27,7 @@ export default function Hero() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Request a briefing
+            Book a briefing
           </a>
           <a href="/whitepaper.pdf" className="btn-ghost" target="_blank" rel="noopener noreferrer">
             Read the whitepaper →

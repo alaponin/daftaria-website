@@ -14,8 +14,8 @@ export default function App() {
       <Nav />
       <main>
         <Hero />
-        <Problem />
         <Approach />
+        <Problem />
         <Capabilities />
         <Maturity />
         <WhyItMatters />

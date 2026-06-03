@@ -15,7 +15,7 @@ export default function Nav() {
         <a href="https://fiscaladmin.com/about" target="_blank" rel="noopener noreferrer">About</a>
       </div>
       <a href="https://fiscaladmin.com/contact" className="nav__cta" target="_blank" rel="noopener noreferrer">
-        Request briefing
+        Contact
       </a>
     </nav>
   )
