@@ -19,15 +19,39 @@
 }
 
 .cap-card {
+  background: var(--off);
   border-radius: 3px;
   padding: 16px;
   border: 1px solid var(--border);
 }
 
-.cap-card--default { background: var(--off); }
-.cap-card--green   { background: #f4f6d8; border-color: #cdd490; }
-.cap-card--orange  { background: #fff3e6; border-color: #ffc88a; }
-.cap-card--empty   { background: var(--off); min-height: 100px; }
+.cap-card--summary {
+  background: var(--blue);
+  border-color: var(--blue);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 100px;
+}
+
+.cap-card__summary-n {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--green);
+  line-height: 1;
+}
+
+.cap-card__summary-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 6px;
+  line-height: 1.5;
+}
 
 .cap-card__icon {
   width: 36px;
@@ -37,7 +61,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.25rem;
+  color: var(--blue);
   margin-bottom: 10px;
 }
 
@@ -82,5 +106,5 @@
 @media (max-width: 768px) {
   .capabilities { padding: 52px 20px; }
   .capabilities__grid { grid-template-columns: repeat(2, 1fr); }
-  .cap-card--empty { display: none; }
+  .cap-card--summary { display: none; }
 }

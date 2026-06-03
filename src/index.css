@@ -53,7 +53,7 @@ body {
   font-size: 1.0625rem;
   color: var(--text-secondary);
   line-height: 1.7;
-  max-width: 640px;
+  max-width: 65ch;
   margin-bottom: 2.5rem;
 }
 .s-sub--light { color: var(--on-dark-secondary); }

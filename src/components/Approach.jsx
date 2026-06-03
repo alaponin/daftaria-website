@@ -2,7 +2,7 @@ import './Approach.css'
 
 const CARDS = [
   {
-    tag: '⊗ Build',
+    tag: 'Build',
     tagClass: 'approach__tag--build',
     title: 'Bespoke development',
     body: 'Reserved for genuinely differentiating capabilities with no configurable alternative. High cost, high risk, high maintenance burden. Avoid for the well-understood common functions of tax administration.',
@@ -10,7 +10,7 @@ const CARDS = [
     badge: null,
   },
   {
-    tag: '◎ Buy',
+    tag: 'Buy',
     tagClass: 'approach__tag--buy',
     title: 'Off-the-shelf purchase',
     body: 'Suitable for true commodities. But monolithic ITAS products force one-size-fits-none at scale and create the very lock-in problem that administrations need to escape.',
@@ -18,7 +18,7 @@ const CARDS = [
     badge: null,
   },
   {
-    tag: '✦ Configure — Daftaria\'s path',
+    tag: "Configure — Daftaria's path",
     tagClass: 'approach__tag--config',
     title: 'Configuration on a mature platform',
     body: 'Tax types, forms, rules, workflows, channels, deadlines — all configuration parameters. A new tax or a whole new country profile is a parameter change, not a software release.',

@@ -1,28 +1,29 @@
+import { Link2, Lock, Clock, Sliders } from 'lucide-react'
 import './Problem.css'
 
 const PROBLEMS = [
   {
-    icon: '⛓',
+    Icon: Link2,
     title: 'Tight coupling',
     body: 'Because everything depends on everything, a change to one capability requires testing and re-validating the whole system. ',
     accent: 'The cost of change rises every year.',
   },
   {
-    icon: '🔒',
+    Icon: Lock,
     title: 'Vendor lock-in',
     body: 'Proprietary formats and a single supplier make the administration dependent. Data and processes are hard to extract. ',
     accent: 'Switching is costly and the administration is exposed.',
   },
   {
-    icon: '🔄',
+    Icon: Clock,
     title: '15–20 year replacement cycle',
     body: 'The monolith eventually becomes too complex to change and is replaced wholesale — ',
     accent: 'a disruptive, high-risk, capital-intensive event repeated every generation.',
   },
   {
-    icon: '📐',
+    Icon: Sliders,
     title: 'One-size-fits-none',
-    body: 'A system built for one administration\'s size and maturity rarely fits another. ',
+    body: "A system built for one administration's size and maturity rarely fits another. ",
     accent: 'Smaller administrations pay for complexity they cannot use.',
   },
 ]
@@ -39,9 +40,11 @@ export default function Problem() {
         capability is tightly woven together. These systems deliver value — until they hit a structural ceiling.
       </p>
       <div className="problem__grid">
-        {PROBLEMS.map(({ icon, title, body, accent }) => (
+        {PROBLEMS.map(({ Icon, title, body, accent }) => (
           <div key={title} className="problem__card">
-            <div className="problem__icon">{icon}</div>
+            <div className="problem__icon">
+              <Icon size={28} strokeWidth={1.5} />
+            </div>
             <h3 className="problem__card-title">{title}</h3>
             <p className="problem__card-body">
               {body}<span className="problem__accent">{accent}</span>

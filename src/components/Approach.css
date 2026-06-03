@@ -38,11 +38,28 @@
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.approach__tag::before {
+  content: '';
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
 }
 
 .approach__tag--build  { color: var(--red-muted); }
+.approach__tag--build::before  { background: var(--red-muted); }
+
 .approach__tag--buy    { color: var(--amber-muted); }
+.approach__tag--buy::before    { background: var(--amber-muted); }
+
 .approach__tag--config { color: var(--muted); }
+.approach__tag--config::before { background: var(--green); }
 
 .approach__card-title {
   font-size: 0.95rem;
