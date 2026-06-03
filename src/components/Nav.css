@@ -18,7 +18,12 @@
   text-decoration: none;
 }
 
-.nav__logo { height: 28px; }
+.nav__logo {
+  height: 28px;
+  background: white;
+  border-radius: 2px;
+  padding: 3px 6px;
+}
 
 .nav__divider {
   width: 1px;
