@@ -34,10 +34,10 @@
 }
 
 .hero__sub {
-  font-size: 0.88rem;
+  font-size: 1.0625rem;
   color: rgba(255, 255, 255, 0.6);
   line-height: 1.7;
-  max-width: 480px;
+  max-width: 560px;
   margin-bottom: 30px;
 }
 
