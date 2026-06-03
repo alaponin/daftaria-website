@@ -68,8 +68,8 @@
 }
 
 .approach__card-body {
-  font-size: 0.74rem;
-  color: var(--text-secondary);
+  font-size: 0.875rem;
+  color: var(--text);
   line-height: 1.65;
   flex: 1;
 }
