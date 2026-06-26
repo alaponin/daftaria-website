@@ -20,14 +20,24 @@ for the design.
    - DO API token: Control Panel → API → Tokens → generate a token with **read/write** scope.
    - Spaces keys: Control Panel → API → Spaces Keys → generate an access key + secret.
 
-3. **Create the GitHub `production` Environment** (repo Settings → Environments):
+3. **Add Repository secrets** (Settings → Secrets and variables → Actions →
+   **Repository secrets** — NOT environment secrets). The `plan` job runs without
+   an environment declaration (plans are not reviewer-gated), so credentials must
+   be repository-scoped or the job cannot read them:
+
+   | Secret | Value |
+   | --- | --- |
+   | `DIGITALOCEAN_ACCESS_TOKEN` | DO API token from step 2 |
+   | `SPACES_ACCESS_KEY_ID` | Spaces access key from step 2 |
+   | `SPACES_SECRET_ACCESS_KEY` | Spaces secret from step 2 |
+
+   **Create the GitHub `production` Environment** (repo Settings → Environments):
    - Add **Required reviewers** and restrict deployments to the `main` branch.
-   - Add these **Environment secrets**:
-     | Secret | Value |
-     | --- | --- |
-     | `DIGITALOCEAN_ACCESS_TOKEN` | DO API token from step 2 |
-     | `SPACES_ACCESS_KEY_ID` | Spaces access key from step 2 |
-     | `SPACES_SECRET_ACCESS_KEY` | Spaces secret from step 2 |
+   - **Do not add secrets here.** The environment provides deploy/apply gating via
+     protection rules only — the `apply` and `deploy` jobs declare
+     `environment: production` and therefore block on reviewer approval before
+     proceeding. Credentials are read from repository secrets (above) by all three
+     jobs.
 
 4. **Bootstrap the state bucket.**
    ```bash
@@ -65,3 +75,15 @@ for the design.
 - If you change the state bucket name/region in `bootstrap/`, update
   `terraform/backend.tf` to match — the backend block cannot read variables.
 - Spaces region slugs (`fra1`) differ from App Platform region slugs (`fra`).
+- DigitalOcean Spaces' support for S3 native state locking (`use_lockfile`) is not
+  guaranteed across all regions. The `concurrency` guards on the `apply`/`deploy`
+  workflow jobs are the primary defense against concurrent state writes. After the
+  first bootstrap, you can sanity-check locking by starting two overlapping
+  `terraform plan` runs and confirming one is rejected.
+- On a combined first push to `main`, the `deploy` workflow (gated only on CI
+  success) can race ahead of `terraform apply` creating the App Platform app,
+  producing an "App not found" failure. Running the first `apply` locally (as
+  step 6 above instructs) avoids this race.
+- The bootstrap stack keeps Terraform state locally (`infra/bootstrap/terraform.tfstate`)
+  and that file is git-ignored. Back it up — losing it requires re-importing the
+  bucket before any future bucket changes can be managed by Terraform.

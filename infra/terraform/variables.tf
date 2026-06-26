@@ -8,6 +8,11 @@ variable "app_name" {
   description = "App Platform app name (also used to locate the app in CI)."
   type        = string
   default     = "daftaria-website"
+
+  validation {
+    condition     = var.app_name == "daftaria-website"
+    error_message = "app_name must be daftaria-website — the deploy workflow locates the app by this exact name."
+  }
 }
 
 variable "app_region" {
