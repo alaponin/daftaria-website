@@ -1,0 +1,35 @@
+name: Deploy
+
+on:
+  workflow_run:
+    workflows: ["CI"]
+    types: [completed]
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    name: Trigger App Platform deployment
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: digitalocean/action-doctl@v2
+        with:
+          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+
+      - name: Resolve app id
+        id: app
+        run: |
+          APP_ID=$(doctl apps list --format ID,Spec.Name --no-header \
+            | awk '$2 == "daftaria-website" {print $1}')
+          if [ -z "$APP_ID" ]; then
+            echo "App 'daftaria-website' not found. Has terraform apply run?" >&2
+            exit 1
+          fi
+          echo "id=$APP_ID" >> "$GITHUB_OUTPUT"
+
+      - name: Create deployment
+        run: doctl apps create-deployment "${{ steps.app.outputs.id }}" --wait
