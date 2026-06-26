@@ -1,15 +1,14 @@
 name: Terraform
 
+# Trunk-based: changes land by pushing to main. The job plans, surfaces the
+# plan in the run's job summary, then applies the saved plan.
 on:
-  pull_request:
-    paths: ["infra/terraform/**", ".github/workflows/terraform.yml"]
   push:
     branches: [main]
     paths: ["infra/terraform/**", ".github/workflows/terraform.yml"]
 
 permissions:
   contents: read
-  pull-requests: write
 
 env:
   TF_IN_AUTOMATION: "true"
@@ -19,48 +18,8 @@ env:
   AWS_SECRET_ACCESS_KEY: ${{ secrets.SPACES_SECRET_ACCESS_KEY }}
 
 jobs:
-  plan:
-    name: Plan
-    if: github.event_name == 'pull_request'
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: infra/terraform
-    steps:
-      - uses: actions/checkout@v4
-      - uses: hashicorp/setup-terraform@v3
-        with:
-          terraform_version: 1.10.5
-      - run: terraform fmt -check -recursive
-      - run: terraform init -input=false
-      - run: terraform validate
-      - name: Plan
-        id: plan
-        run: |
-          terraform plan -input=false -no-color -out=tfplan 2>&1 | tee plan.txt
-      - name: Comment plan on PR
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const fs = require('fs');
-            let plan = fs.readFileSync('infra/terraform/plan.txt', 'utf8');
-            const max = 60000;
-            if (plan.length > max) plan = plan.slice(0, max) + '\n...[truncated]...';
-            const body = `### Terraform Plan\n\`\`\`\n${plan}\n\`\`\``;
-            const { data: comments } = await github.rest.issues.listComments({
-              owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number, per_page: 100,
-            });
-            const marker = '### Terraform Plan';
-            const existing = comments.find(c => c.body.startsWith(marker));
-            if (existing) {
-              await github.rest.issues.updateComment({ owner: context.repo.owner, repo: context.repo.repo, comment_id: existing.id, body });
-            } else {
-              await github.rest.issues.createComment({ owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number, body });
-            }
-
   apply:
-    name: Apply
-    if: github.event_name == 'push'
+    name: Plan and apply
     runs-on: ubuntu-latest
     environment: production
     concurrency:
@@ -74,5 +33,20 @@ jobs:
       - uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: 1.10.5
+          terraform_wrapper: false # so `tee` sees terraform's real exit code
+      - run: terraform fmt -check -recursive
       - run: terraform init -input=false
-      - run: terraform apply -auto-approve -input=false
+      - run: terraform validate
+      - name: Plan
+        run: terraform plan -input=false -no-color -out=tfplan | tee plan.txt
+      - name: Publish plan to job summary
+        run: |
+          {
+            echo '### Terraform Plan'
+            echo '```'
+            cat plan.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+      # Apply the exact plan that was just shown (saved plans apply without a prompt).
+      - name: Apply
+        run: terraform apply -input=false tfplan

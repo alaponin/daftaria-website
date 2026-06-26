@@ -21,9 +21,7 @@ for the design.
    - Spaces keys: Control Panel → API → Spaces Keys → generate an access key + secret.
 
 3. **Add Repository secrets** (Settings → Secrets and variables → Actions →
-   **Repository secrets** — NOT environment secrets). The `plan` job runs without
-   an environment declaration (plans are not reviewer-gated), so credentials must
-   be repository-scoped or the job cannot read them:
+   **Repository secrets**) so every workflow job can read them:
 
    | Secret | Value |
    | --- | --- |
@@ -31,13 +29,18 @@ for the design.
    | `SPACES_ACCESS_KEY_ID` | Spaces access key from step 2 |
    | `SPACES_SECRET_ACCESS_KEY` | Spaces secret from step 2 |
 
-   **Create the GitHub `production` Environment** (repo Settings → Environments):
-   - Add **Required reviewers** and restrict deployments to the `main` branch.
-   - **Do not add secrets here.** The environment provides deploy/apply gating via
-     protection rules only — the `apply` and `deploy` jobs declare
-     `environment: production` and therefore block on reviewer approval before
-     proceeding. Credentials are read from repository secrets (above) by all three
-     jobs.
+   **Create the GitHub `production` Environment** (repo Settings → Environments).
+   The `apply` and `deploy` jobs declare `environment: production`, which gives you
+   a deployment history/audit trail under the repo's Environments tab.
+   - **Solo trunk-based (default): leave protection rules OFF** — no required
+     reviewers, no wait timer — so pushes to `main` apply and deploy without any
+     manual approval click. (You are the only one who can push to `main`, so the
+     push itself is the gate.)
+   - If you later want a deliberate "are you sure" pause before prod changes, add
+     **Required reviewers** to this environment; the `apply`/`deploy` jobs will then
+     block on approval. No workflow change needed.
+   - Credentials are read from the repository secrets above, not from the
+     environment.
 
 4. **Bootstrap the state bucket.**
    ```bash
@@ -63,12 +66,16 @@ for the design.
    app hostname shown by `terraform output default_url` (the `*.ondigitalocean.app`
    host). App Platform auto-provisions a Let's Encrypt certificate once it resolves.
 
-## Day-to-day
+## Day-to-day (trunk-based — push straight to `main`)
 
-- App/UI changes: open a PR → `CI` runs lint+build → merge to `main` → `CI` reruns →
-  `Deploy` triggers a DO deployment (DO rebuilds from source).
-- Infra changes under `infra/terraform/**`: PR shows a `terraform plan`; merge to
-  `main` runs `terraform apply` (reviewer-gated `production`).
+- App/UI changes: push to `main` → `CI` runs lint+build → on success `Deploy`
+  triggers a DO deployment (DO rebuilds from source).
+- Infra changes under `infra/terraform/**`: push to `main` → `Terraform` runs
+  `plan` (shown in the run's **job summary**) then applies the saved plan. Review
+  the plan in the summary; if you want to see it before it lands, run
+  `terraform plan` locally first (export the three env vars as in step 4).
+- Branches/PRs are optional. `CI` still runs on pull requests if you ever open one,
+  but the normal flow needs no PR.
 
 ## Notes
 
