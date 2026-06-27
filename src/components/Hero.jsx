@@ -1,24 +1,23 @@
 import './Hero.css'
 
-const STATS = [
-  { n: '11', label: 'Integrated capabilities' },
-  { n: '1',  label: 'Codebase, all deployments' },
-  { n: '0',  label: 'Vendor lock-in' },
+const PROPS = [
+  { word: 'Own it',    gloss: 'Your data, your rules, your exit.' },
+  { word: 'Afford it', gloss: 'A small team can sustain it — no consultant dependency.' },
+  { word: 'Evolve it', gloss: 'Climb the maturity ladder by configuration, not by re-buying.' },
 ]
 
 export default function Hero() {
   return (
     <section className="hero">
       <div className="hero__content">
-        <p className="eyebrow eyebrow--green">The Configurable Tax Administration Suite</p>
+        <p className="eyebrow eyebrow--green">Daftar · register · ledger · office</p>
         <h1 className="hero__h1">
-          Modern revenue administration,<br />
-          for <em>every</em> administration.
+          A complete, modern tax administration<br />
+          you can <em>own</em> and <em>afford</em>.
         </h1>
         <p className="hero__sub">
-          One integrated, configurable platform that runs the entire revenue lifecycle —
-          registration, filing, payment, audit, debt, appeals — configured, not coded.
-          Built on Joget DX9.
+          Configured to your laws — not coded from scratch. One integrated system for the whole
+          revenue lifecycle, that your own team runs and grows.
         </p>
         <div className="hero__ctas">
           <a
@@ -29,16 +28,16 @@ export default function Hero() {
           >
             Book a briefing
           </a>
-          <a href="/whitepaper.pdf" className="btn-ghost" target="_blank" rel="noopener noreferrer">
+          <a href="/whitepaper.pdf" className="btn-ghost btn-ghost--dark" target="_blank" rel="noopener noreferrer">
             Read the whitepaper →
           </a>
         </div>
       </div>
-      <div className="hero__stats">
-        {STATS.map(({ n, label }) => (
-          <div key={label} className="hero__stat">
-            <span className="hero__stat-n">{n}</span>
-            <span className="hero__stat-l">{label}</span>
+      <div className="hero__props">
+        {PROPS.map(({ word, gloss }) => (
+          <div key={word} className="hero__prop">
+            <span className="hero__prop-word">{word}</span>
+            <span className="hero__prop-gloss">{gloss}</span>
           </div>
         ))}
       </div>
