@@ -13,12 +13,12 @@ export default function Founder() {
   return (
     <section className="founder" id="team">
       <div className="founder__inner">
-        <img className="founder__portrait" src="/aare-laponin.jpg" alt="Aare Laponin" />
+        <img className="founder__portrait" src="/aare-laponin.jpg" alt="Aare Lapõnin" />
         <div className="founder__body">
           <p className="eyebrow eyebrow--green">The experience behind Daftaria</p>
           <h2 className="founder__h2">Built by people who have sat on your side of the desk.</h2>
           <p className="founder__lead">
-            Daftaria is led by Aare Laponin — 30+ years building revenue and risk systems for
+            Daftaria is led by Aare Lapõnin — 30+ years building revenue and risk systems for
             governments, from inside a tax administration, inside the IMF, and as an author of the
             standards this market is procured against.
           </p>
