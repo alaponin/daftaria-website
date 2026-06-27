@@ -3,34 +3,32 @@ import './WhyItMatters.css'
 const AUDIENCES = [
   {
     role: 'For senior management',
-    title: 'World-class capability at a fraction of the cost and risk',
+    title: 'World-class capability, at a fraction of the cost and risk',
     points: [
       'Value delivered in months, not years',
-      'End to the 15–20 year replacement trap',
-      'System grows with the administration and tracks the law',
-      'No costly re-procurement as legislation changes',
+      'No 15–20 year replacement trap',
+      'The system grows with you and tracks the law',
+      'No re-procurement when legislation changes',
     ],
   },
   {
     role: 'For IT / CIO leadership',
-    title: 'A system a small team can genuinely own and evolve',
+    title: 'A system a small team can genuinely own',
     points: [
-      'Mature, vendor-supported platform — not orphaned bespoke code',
-      'Minimal bespoke footprint; routine evolution performed in-house',
-      'Standards-based: OCI containers, Kubernetes, BPMN 2.0, OpenAPI 3.0',
-      'Full data and process portability in open formats',
-      'Documented exit regime — no lock-in, ever',
+      'A mature, supported foundation — not orphaned bespoke code',
+      'Minimal bespoke footprint; routine changes done in-house',
+      'Your data and processes stay portable, in open formats',
+      'A documented exit — no lock-in, ever',
     ],
   },
   {
     role: 'For technical advisers',
-    title: 'Aligned to international good practice and reference architecture',
+    title: 'Aligned to international good practice',
     points: [
-      'Reference-architecture aligned (TARA) — five-domain model',
-      'All twelve capabilities implemented and traceable to requirements',
-      'GovStack building-block compatible, BPMN 2.0 and OpenAPI 3.0',
+      'Aligned to TADAT and OECD Tax Administration 3.0',
+      'GovStack building-block compatible',
       'Single taxpayer account, risk-based compliance, independent appeals',
-      'Conformance is demonstrable, not merely asserted',
+      'Conformance you can demonstrate, not merely assert',
     ],
   },
 ]
@@ -38,12 +36,12 @@ const AUDIENCES = [
 export default function WhyItMatters() {
   return (
     <section className="why" id="why">
-      <p className="eyebrow eyebrow--muted">Why it matters</p>
+      <p className="eyebrow eyebrow--green">Why it matters</p>
       <h2 className="why__h2">
         The right answer<br />for every stakeholder.
       </h2>
       <p className="s-sub">
-        Daftaria is built to answer the concerns of every decision-maker in the room — not just one.
+        Daftaria answers the concern of every decision-maker in the room — not just one.
       </p>
       <div className="why__grid">
         {AUDIENCES.map(({ role, title, points }) => (
