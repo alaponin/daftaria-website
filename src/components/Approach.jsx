@@ -17,7 +17,7 @@ export default function Approach() {
             system as the law changes, with no release cycle.
           </p>
           <blockquote className="approach__quote">
-            &quot;When the law changes, the rule changes — the software doesn&apos;t.&quot;
+            &ldquo;When the law changes, the rule changes — the software doesn&apos;t.&rdquo;
           </blockquote>
         </div>
         <div className="approach__diagram">

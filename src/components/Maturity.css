@@ -94,7 +94,7 @@
   letter-spacing: 0.06em;
 }
 
-.maturity__footnote strong { color: var(--blue); }
+.maturity__footnote strong { color: var(--green); }
 
 @media (max-width: 768px) {
   .maturity { padding: 52px 20px; }
