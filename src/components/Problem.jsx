@@ -1,43 +1,43 @@
-import { Link2, Lock, Clock, Sliders } from 'lucide-react'
+import { TrendingUp, Lock, RefreshCw, PuzzleIcon } from 'lucide-react'
 import './Problem.css'
 
 const PROBLEMS = [
   {
-    Icon: Link2,
-    title: 'Tight coupling',
-    body: 'Because everything depends on everything, a change to one capability requires testing and re-validating the whole system. ',
-    accent: 'The cost of change rises every year.',
+    Icon: TrendingUp,
+    title: 'Change keeps getting more expensive',
+    body: 'Every new rule means re-testing the whole system. ',
+    accent: 'The cost and risk of change rise every single year.',
   },
   {
     Icon: Lock,
-    title: 'Vendor lock-in',
-    body: 'Proprietary formats and a single supplier make the administration dependent. Data and processes are hard to extract. ',
-    accent: 'Switching is costly and the administration is exposed.',
+    title: "Your data isn't really yours",
+    body: 'Locked to one vendor and proprietary formats, ',
+    accent: 'you cannot get your own data and processes out.',
   },
   {
-    Icon: Clock,
-    title: '15–20 year replacement cycle',
-    body: 'The monolith eventually becomes too complex to change and is replaced wholesale — ',
-    accent: 'a disruptive, high-risk, capital-intensive event repeated every generation.',
+    Icon: RefreshCw,
+    title: 'Rebuilt every 15–20 years',
+    body: 'The system grows too complex to change and must be torn out wholesale — ',
+    accent: 'a high-risk, capital-intensive event, every generation.',
   },
   {
-    Icon: Sliders,
-    title: 'One-size-fits-none',
-    body: "A system built for one administration's size and maturity rarely fits another. ",
-    accent: 'Smaller administrations pay for complexity they cannot use.',
+    Icon: PuzzleIcon,
+    title: 'Built for someone else',
+    body: 'Designed for big, rich administrations, it makes you ',
+    accent: 'pay for complexity you cannot use and miss the simplicity you need.',
   },
 ]
 
 export default function Problem() {
   return (
     <section className="problem" id="problem">
-      <p className="eyebrow eyebrow--green">Why revenue systems fail</p>
+      <p className="eyebrow eyebrow--green">Where you are now</p>
       <h2 className="problem__h2">
-        The legacy trap is real.<br />And expensive.
+        The ground is shifting<br />under the old model.
       </h2>
-      <p className="s-sub s-sub--light">
-        Most tax administrations run a monolithic Integrated Tax Administration System in which every
-        capability is tightly woven together. These systems deliver value — until they hit a structural ceiling.
+      <p className="s-sub">
+        Most administrations run a single, monolithic system where every capability is woven
+        together. It delivers value — until it hits a structural ceiling.
       </p>
       <div className="problem__grid">
         {PROBLEMS.map(({ Icon, title, body, accent }) => (

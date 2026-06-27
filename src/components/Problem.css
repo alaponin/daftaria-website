@@ -1,12 +1,12 @@
 .problem {
-  background: var(--blue-md);
+  background: var(--off);
   padding: 72px 48px;
 }
 
 .problem__h2 {
   font-size: 1.85rem;
   font-weight: 800;
-  color: white;
+  color: var(--text);
   line-height: 1.2;
   margin-bottom: 14px;
 }
@@ -19,8 +19,8 @@
 }
 
 .problem__card {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 3px;
   padding: 22px 20px;
 }
@@ -40,13 +40,13 @@
 .problem__card-title {
   font-size: 0.88rem;
   font-weight: 700;
-  color: white;
+  color: var(--text);
   margin-bottom: 8px;
 }
 
 .problem__card-body {
   font-size: 0.74rem;
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--text-secondary);
   line-height: 1.65;
 }
 
