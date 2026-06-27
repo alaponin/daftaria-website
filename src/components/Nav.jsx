@@ -9,10 +9,10 @@ export default function Nav() {
         <span className="nav__wordmark">DAFTARIA</span>
       </a>
       <div className="nav__links">
-        <a href="#solution">Solution</a>
-        <a href="#capabilities">Capabilities</a>
-        <a href="#why">For Advisers</a>
-        <a href="https://fiscaladmin.com/about" target="_blank" rel="noopener noreferrer">About</a>
+        <a href="#problem">The problem</a>
+        <a href="#solution">The difference</a>
+        <a href="#proof">Proof</a>
+        <a href="#why">For advisers</a>
       </div>
       <a href="https://fiscaladmin.com/contact" className="nav__cta" target="_blank" rel="noopener noreferrer">
         Contact

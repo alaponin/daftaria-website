@@ -4,12 +4,11 @@ export default function CtaSection() {
   return (
     <section className="cta-section">
       <h2 className="cta-section__h2">
-        Ready to make tax administration<br />
-        <em>work for every administration?</em>
+        Ready for a tax administration<br />
+        you can <em>own</em>?
       </h2>
       <p className="s-sub s-sub--light">
-        Request a briefing with the FiscalAdmin team — or download the full whitepaper
-        to share with your colleagues and technical advisers.
+        Request a briefing, or read the whitepaper to share with your colleagues and technical advisers.
       </p>
       <div className="cta-section__buttons">
         <a
