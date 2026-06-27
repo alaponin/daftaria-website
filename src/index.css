@@ -2,7 +2,6 @@
 :root {
   --blue:    #07295e;
   --blue-dk: #051e47;
-  --blue-md: #0f3872;
   --green:   #bdca42;
   --orange:  #ff8704;
   --orange-dk: #e67700;
@@ -11,8 +10,6 @@
   --muted:   #5a6240;
   --text:    #1c2010;
   --text-secondary: #4a5568;
-  --red-muted:      #9a3030;
-  --amber-muted:    #7a6020;
   --surface:        #ffffff;
   --on-dark-secondary: rgba(255, 255, 255, 0.6);
   --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;

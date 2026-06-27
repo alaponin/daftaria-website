@@ -5,7 +5,7 @@
 
 .problem__h2 {
   font-size: 1.85rem;
-  font-weight: 800;
+  font-weight: 600;
   color: var(--text);
   line-height: 1.2;
   margin-bottom: 14px;
@@ -51,11 +51,11 @@
 }
 
 .problem__accent {
-  color: var(--orange);
+  color: var(--blue);
   font-weight: 600;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 760px) {
   .problem { padding: 52px 20px; }
-  .problem__grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .problem__grid { grid-template-columns: 1fr; gap: 12px; }
 }
