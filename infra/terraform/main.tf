@@ -23,5 +23,38 @@ resource "digitalocean_app" "website" {
       name = var.domain_name
       type = "PRIMARY"
     }
+
+    domain {
+      name = "www.${var.domain_name}"
+      type = "ALIAS"
+    }
+
+    ingress {
+      rules {
+        component {
+          name = "website"
+        }
+        match {
+          path {
+            prefix = "/"
+          }
+        }
+      }
+
+      rules {
+        redirect {
+          uri       = "https://${var.domain_name}"
+          http_code = 301
+        }
+        match {
+          path {
+            prefix = "/"
+          }
+          domain {
+            name = "www.${var.domain_name}"
+          }
+        }
+      }
+    }
   }
 }
