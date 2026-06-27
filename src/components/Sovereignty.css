@@ -1,0 +1,26 @@
+.sov { background: var(--blue); color: #fff; }
+.sov__inner { max-width: 1080px; margin: 0 auto; padding: 84px 32px; }
+.sov__eyebrow { color: var(--green); }
+.sov__h2 { color: #fff; font-size: clamp(1.9rem, 3.6vw, 2.8rem); margin-bottom: 1rem; }
+.sov__sub { font-size: 1.0625rem; color: rgba(255, 255, 255, 0.72); max-width: 60ch; margin-bottom: 2.25rem; }
+.sov__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.sov__card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  padding: 24px 22px;
+}
+.sov__card-title { color: #fff; font-size: 1.15rem; margin-bottom: 8px; }
+.sov__card-body { font-size: 0.92rem; color: rgba(255, 255, 255, 0.72); line-height: 1.6; }
+.sov__tagline {
+  margin-top: 32px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.3rem, 2.6vw, 1.9rem);
+  color: #fff;
+  text-align: center;
+}
+@media (max-width: 760px) {
+  .sov__inner { padding: 60px 20px; }
+  .sov__grid { grid-template-columns: 1fr; }
+}

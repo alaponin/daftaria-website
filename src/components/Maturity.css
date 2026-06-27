@@ -1,12 +1,12 @@
 .maturity {
-  background: var(--blue-dk);
+  background: var(--off);
   padding: 72px 48px;
 }
 
 .maturity__h2 {
   font-size: 1.85rem;
-  font-weight: 800;
-  color: white;
+  font-weight: 600;
+  color: var(--blue-dk);
   line-height: 1.2;
   margin-bottom: 0.875rem;
 }
@@ -20,7 +20,7 @@
 
 .maturity__card {
   flex: 1;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border);
   padding: 24px 20px;
   display: flex;
   flex-direction: column;
@@ -30,9 +30,30 @@
 .maturity__card:first-child { border-radius: 3px 0 0 3px; }
 .maturity__card:last-child  { border-radius: 0 3px 3px 0; }
 
-.maturity__card--highlight {
-  background: rgba(189, 202, 66, 0.07);
-  border-color: rgba(189, 202, 66, 0.3);
+.maturity__card--here {
+  background: #fff;
+  border: 1.5px solid var(--blue);
+  box-shadow: 0 6px 24px rgba(7, 41, 94, 0.08);
+}
+
+.maturity__here {
+  display: inline-block;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--blue);
+  padding: 3px 9px;
+  border-radius: 3px;
+  margin-bottom: 12px;
+}
+
+.maturity__card-kicker {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin: 2px 0 10px;
 }
 
 .maturity__arrow {
@@ -56,33 +77,20 @@
 .maturity__card-title {
   font-size: 0.9rem;
   font-weight: 700;
-  color: white;
+  color: var(--text);
 }
 
 .maturity__card-body {
   font-size: 0.74rem;
-  color: var(--on-dark-secondary);
+  color: var(--text-secondary);
   line-height: 1.65;
   flex: 1;
-}
-
-.maturity__bar-track {
-  height: 4px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 2px;
-  margin-top: 8px;
-}
-
-.maturity__bar {
-  height: 4px;
-  background: var(--green);
-  border-radius: 2px;
 }
 
 .maturity__footnote {
   text-align: center;
   font-size: 0.72rem;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--muted);
   letter-spacing: 0.06em;
 }
 

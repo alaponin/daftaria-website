@@ -1,0 +1,16 @@
+.taxexp {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 72px 32px;
+}
+.taxexp__h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); margin-bottom: 1rem; }
+.taxexp__channels { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+.taxexp__chip {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--blue);
+  background: rgba(7, 41, 94, 0.06);
+  border-radius: 999px;
+  padding: 8px 18px;
+}
+@media (max-width: 760px) { .taxexp { padding: 48px 20px; } }
