@@ -36,3 +36,6 @@ override.tf.json
 *_override.tf.json
 .terraform.lock.hcl
 !infra/terraform/.terraform.lock.hcl
+
+# Local planning docs
+docs/superpowers/
