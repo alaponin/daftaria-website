@@ -4,9 +4,7 @@ export default function Nav() {
   return (
     <nav className="nav">
       <a href="#" className="nav__brand">
-        <img src="/FiscalAdmin-copy-v.png" alt="FiscalAdmin" className="nav__logo" />
-        <div className="nav__divider" />
-        <span className="nav__wordmark">DAFTARIA</span>
+        <img src="/daftaria-logo.png" alt="Daftaria" className="nav__logo" />
       </a>
       <div className="nav__links">
         <a href="#problem">The problem</a>
